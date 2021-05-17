@@ -15,7 +15,10 @@ export class EntryService {
     return this.http.post<Entry>(this.entryUrl, { entry })
   }
 
-  getEntries(): Observable<[Entry[], number]> {
-    return this.http.get<[Entry[], number]>(this.entryUrl)
+  getEntries(query?: string): Observable<[Entry[], number]> {
+    if(query)
+      return this.http.get<[Entry[], number]>(this.entryUrl + query)
+    else
+      return this.http.get<[Entry[], number]>(this.entryUrl)
   }
 }

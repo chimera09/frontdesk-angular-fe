@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../login.service';
 import { User } from '../models/user';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+
 
 @Component({
   selector: 'app-login',
@@ -10,7 +13,7 @@ import { User } from '../models/user';
 export class LoginComponent implements OnInit {
   user?: User
 
-  constructor(private loginService: LoginService) {
+  constructor(private loginService: LoginService, private router: Router, private toastr: ToastrService) {
   }
 
   ngOnInit(): void {
@@ -19,6 +22,11 @@ export class LoginComponent implements OnInit {
   login(user: User): void {
     this.loginService.login({ email: user.email, password: user.password } as User)
       .subscribe(user => this.user = user)
+    
+    if(this.user) {
+      this.router.navigateByUrl('/entries')
+    }
+    else this.toastr.error('User not found')
   }
 
 }

@@ -24,12 +24,13 @@ export class TabletComponent implements OnInit {
   }
 
   onSubmit(): void {
-    console.log("Entry form: ", this.entryForm)
-    this.entryService.newEntry(<Entry>this.entryForm.value).subscribe((newEntry: Entry) => {
-      console.log(newEntry)
-    }, (error: Error) => {
-      console.error(error)
-    })
+    if (this.entryForm.status === 'VALID') {
+      this.entryService.newEntry(<Entry>this.entryForm.value).subscribe((newEntry: Entry) => {
+        console.log(newEntry)
+      }, (error: Error) => {
+        console.error(error)
+      })
+    }
   }
 
 }

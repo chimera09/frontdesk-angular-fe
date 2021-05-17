@@ -15,7 +15,6 @@ export class EntriesComponent implements OnInit {
   pageIndex: number = 0
   rowsPerPage: string = DEFAULT_ROWS_PER_PAGE_VALUE
   displayColumns = ['name', 'surname', 'email', 'phone', 'company', 'date']
-  // query = `?from=${this.pageIndex}&limit=${this.rowsPerPage}`
 
   constructor(private entryService: EntryService) { }
 
@@ -28,8 +27,8 @@ export class EntriesComponent implements OnInit {
     this.getEntries(this.pageIndex)
   }
 
-  getEntries(start: number, stop: number = Number(this.rowsPerPage)): void {
-    this.entryService.getEntries(start, stop).subscribe(result => {
+  getEntries(from: number, limit: number = Number(this.rowsPerPage)): void {
+    this.entryService.getEntries(from, limit).subscribe(result => {
       this.entryArray = result[0]
       this.length = result[1]
     })

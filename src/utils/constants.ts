@@ -1,0 +1,3 @@
+export const DEFAULT_ROWS_PER_PAGE_VALUE = '5'
+
+export const DEFAULT_DATE_FORMAT = 'DD/MM/YYYY'

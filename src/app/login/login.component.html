@@ -1,0 +1,8 @@
+<h1>Login</h1>
+<input placeholder="username" #username />
+<br>
+<input placeholder="password" #password />
+<button (click)="login({email: username.value, password: password.value})">Login</button>
+<div *ngIf="user">
+    <h2>{{ user.name }}</h2>
+</div>

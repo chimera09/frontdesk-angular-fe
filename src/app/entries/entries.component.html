@@ -1,0 +1,30 @@
+<table mat-table [dataSource]="entryArray" class="full-width">
+    <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef>Name </th>
+        <td mat-cell *matCellDef="let entry">{{ entry.name }}</td>
+    </ng-container>
+    <ng-container matColumnDef="surname">
+        <th mat-header-cell *matHeaderCellDef>Surname </th>
+        <td mat-cell *matCellDef="let entry">{{ entry.surname }}</td>
+    </ng-container>
+    <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef>Email </th>
+        <td mat-cell *matCellDef="let entry">{{ entry.email }}</td>
+    </ng-container>
+    <ng-container matColumnDef="phone">
+        <th mat-header-cell *matHeaderCellDef>Phone </th>
+        <td mat-cell *matCellDef="let entry">{{ entry.phone }}</td>
+    </ng-container>
+    <ng-container matColumnDef="company">
+        <th mat-header-cell *matHeaderCellDef>Company </th>
+        <td mat-cell *matCellDef="let entry">{{ entry.company }}</td>
+    </ng-container>
+    <ng-container matColumnDef="date">
+        <th mat-header-cell *matHeaderCellDef>Date </th>
+        <td mat-cell *matCellDef="let entry">{{ entry.date }}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayColumns;"></tr>
+</table>
+<mat-paginator [length]="length" [pageSize]="rowsPerPage" (page)="onChangePage($event)"></mat-paginator>

@@ -15,9 +15,9 @@ export class EntryService {
     return this.http.post<Entry>(this.entryUrl, { entry })
   }
 
-  getEntries(query?: string): Observable<[Entry[], number]> {
-    if(query)
-      return this.http.get<[Entry[], number]>(this.entryUrl + query)
+  getEntries(from: number, limit: number): Observable<[Entry[], number]> {
+    if(from !== -1)
+      return this.http.get<[Entry[], number]>(`${this.entryUrl}?from=${from}&limit=${limit}`)
     else
       return this.http.get<[Entry[], number]>(this.entryUrl)
   }

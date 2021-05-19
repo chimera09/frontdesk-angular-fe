@@ -1,40 +1,38 @@
 <div class="container">
     <form [formGroup]="entryForm" novalidate class="fullscreen">
-        <mat-card class="fullscreen">
-            <mat-card-header class="title">
-                <mat-card-title>Tablet</mat-card-title>
-            </mat-card-header>
-            <mat-form-field>
-                <input matInput placeholder="Name" formControlName="name">
-                <mat-error *ngIf="entryForm.controls['name'].hasError('required')">
-                    Name is <strong>required</strong>
-                </mat-error>
-            </mat-form-field>
-            <mat-form-field>
-                <input matInput placeholder="Surname" formControlName="surname">
-                <mat-error *ngIf="entryForm.controls['surname'].hasError('required')">
-                    Surname is <strong>required</strong>
-                </mat-error>
-            </mat-form-field>
-            <mat-form-field>
-                <input matInput placeholder="Email" formControlName="email">
-                <mat-error *ngIf="entryForm.controls['email'].hasError('required')">
-                    Email is <strong>required</strong>
-                </mat-error>
-            </mat-form-field>
-            <mat-form-field>
-                <input matInput placeholder="Phone" formControlName="phone">
-                <mat-error *ngIf="entryForm.controls['phone'].hasError('required')">
-                    Phone is <strong>required</strong>
-                </mat-error>
-            </mat-form-field>
-            <mat-form-field>
-                <input matInput placeholder="Company" formControlName="company">
-                <mat-error *ngIf="entryForm.controls['company'].hasError('required')">
-                    Company is <strong>required</strong>
-                </mat-error>
-            </mat-form-field>
-            <button mat-raised-button color="primary" type="submit" (click)="onSubmit()">Submit</button>
-        </mat-card>
+        <mat-card-header class="title">
+            <mat-card-title style="font-size: xx-large; color: white">Tablet</mat-card-title>
+        </mat-card-header>
+        <mat-form-field>
+            <input matInput placeholder="Name" formControlName="name">
+            <mat-error *ngIf="entryForm.controls['name'].hasError('required')">
+                Name is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Surname" formControlName="surname">
+            <mat-error *ngIf="entryForm.controls['surname'].hasError('required')">
+                Surname is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Email" formControlName="email">
+            <mat-error *ngIf="entryForm.controls['email'].hasError('required')">
+                Email is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Phone" formControlName="phone">
+            <mat-error *ngIf="entryForm.controls['phone'].hasError('required')">
+                Phone is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Company" formControlName="company">
+            <mat-error *ngIf="entryForm.controls['company'].hasError('required')">
+                Company is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+        <button mat-raised-button color="primary" type="submit" (click)="onSubmit()">Submit</button>
     </form>
 </div>

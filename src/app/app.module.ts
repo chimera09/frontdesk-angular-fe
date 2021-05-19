@@ -18,6 +18,7 @@ import { MatCardModule } from '@angular/material/card';
 import { ReactiveFormsModule } from '@angular/forms';
 import { EntriesComponent } from './entries/entries.component';
 import { ToastrModule } from 'ngx-toastr';
+import { StringToNumberPipe } from './string-to-number.pipe';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { ToastrModule } from 'ngx-toastr';
     LoginComponent,
     TabletComponent,
     EntriesComponent,
+    StringToNumberPipe,
   ],
   imports: [
     BrowserModule,

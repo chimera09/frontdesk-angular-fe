@@ -14,7 +14,7 @@ export class EntriesComponent implements OnInit {
   length: number = 0
   pageIndex: number = 0
   rowsPerPage: string = DEFAULT_ROWS_PER_PAGE_VALUE
-  displayColumns = ['name', 'surname', 'email', 'phone', 'company', 'date']
+  displayColumns = ['index', 'name', 'surname', 'email', 'phone', 'company', 'date']
 
   constructor(private entryService: EntryService) { }
 

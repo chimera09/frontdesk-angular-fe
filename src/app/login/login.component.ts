@@ -21,12 +21,13 @@ export class LoginComponent implements OnInit {
 
   login(user: User): void {
     this.loginService.login({ email: user.email, password: user.password } as User)
-      .subscribe(user => this.user = user)
-    
-    if(this.user) {
-      this.router.navigateByUrl('/entries')
+      .subscribe(user => {
+        if(user.name) {
+          this.user = user
+          this.router.navigateByUrl('/entries')
+        } else {
+          this.toastr.error('User not found')
+        }
+      })
     }
-    else this.toastr.error('User not found')
-  }
-
 }

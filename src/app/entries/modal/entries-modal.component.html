@@ -1,0 +1,34 @@
+<h1 mat-dialog-title class="title">Edit user</h1>
+<mat-dialog-content [formGroup]="entryForm">
+    <mat-form-field>
+        <input matInput placeholder="Name" formControlName="name">
+        <mat-error *ngIf="entryForm.controls['name'].hasError('required')">
+            Name is <strong>required</strong>
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="Surname" formControlName="surname">
+        <mat-error *ngIf="entryForm.controls['surname'].hasError('required')">
+            Surname is <strong>required</strong>
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="Email" formControlName="email">
+        <mat-error *ngIf="entryForm.controls['email'].hasError('required')">
+            Email is <strong>required</strong>
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="Phone" formControlName="phone">
+        <mat-error *ngIf="entryForm.controls['phone'].hasError('required')">
+            Phone is <strong>required</strong>
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="Company" formControlName="company">
+        <mat-error *ngIf="entryForm.controls['company'].hasError('required')">
+            Company is <strong>required</strong>
+        </mat-error>
+    </mat-form-field>
+    <button mat-raised-button color="primary" type="submit" (click)="onSubmit()">Submit</button>
+</mat-dialog-content>

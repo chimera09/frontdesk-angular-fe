@@ -21,4 +21,12 @@ export class EntryService {
     else
       return this.http.get<[Entry[], number]>(this.entryUrl)
   }
+
+  deleteEntry(id: string): Observable<Entry> {
+    return this.http.delete<Entry>(`${this.entryUrl}/${id}`)
+  }
+
+  updateEntry(entry: Entry, id: string): Observable<Entry> {
+    return this.http.put<Entry>(`${this.entryUrl}/${id}`, entry)
+  }
 }

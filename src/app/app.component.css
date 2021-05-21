@@ -1,0 +1,17 @@
+.toolbar {
+    display: flex;
+    flex-direction: row;
+    align-content: flex-start;
+    justify-content: space-between;
+}
+
+button {
+    display: flex;
+    flex-direction: flex-end;
+    justify-content: space-between;
+    margin-right: 8px
+}
+
+a {
+    text-decoration: none;
+}

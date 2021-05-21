@@ -1,1 +1,12 @@
+<mat-toolbar *ngIf="!inLogin" class="toolbar">
+    Frontdesk
+    <div class="toolbar">
+        <a [href]="entries">
+            <button mat-flat-button>Entries</button>
+        </a>
+        <a [href]="tablet">
+            <button mat-flat-button>Tablet</button>
+        </a>
+    </div>
+</mat-toolbar>
 <router-outlet></router-outlet>

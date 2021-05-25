@@ -33,6 +33,6 @@
                 Company is <strong>required</strong>
             </mat-error>
         </mat-form-field>
-        <button mat-raised-button color="primary" type="submit" (click)="onSubmit()">Submit</button>
+        <button mat-raised-button color="primary" type="reset" [disabled]="!entryForm.valid" (click)="onSubmit()">Submit</button>
     </form>
 </div>

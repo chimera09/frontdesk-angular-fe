@@ -1,4 +1,4 @@
-<mat-toolbar *ngIf="!inLogin" class="toolbar">
+<mat-toolbar *ngIf="!inLogin && isLogged">
     Frontdesk
     <div class="toolbar">
         <a [href]="entries">
@@ -7,6 +7,9 @@
         <a [href]="tablet">
             <button mat-flat-button>Tablet</button>
         </a>
+        <button mat-flat-button (click)="logout()">
+            <mat-icon>power_settings_new</mat-icon>
+        </button>
     </div>
 </mat-toolbar>
 <router-outlet></router-outlet>

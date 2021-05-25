@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Entry } from '../models/entry';
-import { EntryService } from '../entry.service';
+import { EntryService } from '../services/entries/entry.service';
 import { DEFAULT_ROWS_PER_PAGE_VALUE } from '../../utils/constants';
 import { PageEvent } from '@angular/material/paginator';
 import { MatDialog } from '@angular/material/dialog';

@@ -1,0 +1,43 @@
+<div class="container">
+    <form [formGroup]="userForm" novalidate class="fullscreen">
+        <mat-card-header class="title">
+            <mat-card-title style="font-size: xx-large; color: white">Register</mat-card-title>
+        </mat-card-header>
+        <mat-form-field>
+            <input matInput placeholder="Name" formControlName="name">
+            <mat-error *ngIf="userForm.controls['name'].hasError('required')">
+                Name is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Surname" formControlName="surname">
+            <mat-error *ngIf="userForm.controls['surname'].hasError('required')">
+                Surname is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Email" formControlName="email">
+            <mat-error *ngIf="userForm.controls['email'].hasError('required')">
+                Email is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Phone" formControlName="phone">
+            <mat-error *ngIf="userForm.controls['phone'].hasError('required')">
+                Phone is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-select matInput placeholder="Role" formControlName="role">
+                <mat-option *ngFor="let role of roles | keyvalue" [value]="role.value">
+                    {{ role.value }}
+                </mat-option>
+            </mat-select>
+            <mat-error *ngIf="userForm.controls['role'].hasError('required')">
+                Role is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+        <button mat-raised-button color="primary" type="reset" [disabled]="!userForm.valid"
+            (click)="onSubmit()">Submit</button>
+    </form>
+</div>

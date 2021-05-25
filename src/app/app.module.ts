@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { GlobalInterceptor } from './http-interceptors/global.interceptor';
 import { ToastrModule } from 'ngx-toastr';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -25,6 +24,10 @@ import { TabletComponent } from './tablet/tablet.component';
 import { EntriesComponent } from './entries/entries.component';
 import { StringToNumberPipe } from './string-to-number.pipe';
 import { EntriesModalComponent } from './entries/modal/entries-modal.component';
+import { RegisterComponent } from './register/register.component';
+import { NavigationService } from './services/navigation/navigation.service';
+import { GlobalInterceptor } from './helpers/global.interceptor';
+import { JwtInterceptor } from './helpers/jwt.interceptor';
 
 @NgModule({
   declarations: [
@@ -34,6 +37,7 @@ import { EntriesModalComponent } from './entries/modal/entries-modal.component';
     EntriesComponent,
     EntriesModalComponent,
     StringToNumberPipe,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
@@ -58,7 +62,9 @@ import { EntriesModalComponent } from './entries/modal/entries-modal.component';
     }),
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: GlobalInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: GlobalInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
+    NavigationService
   ],
   bootstrap: [AppComponent]
 })

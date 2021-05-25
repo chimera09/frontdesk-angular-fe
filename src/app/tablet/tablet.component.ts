@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Entry } from '../models/entry';
-import { EntryService } from '../entry.service';
+import { EntryService } from '../services/entries/entry.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-tablet',
@@ -18,16 +19,20 @@ export class TabletComponent implements OnInit {
     date: new Date()
   })
 
-  constructor(private fb: FormBuilder, private entryService: EntryService) { }
+  constructor(private fb: FormBuilder, 
+              private entryService: EntryService, 
+              private toastr: ToastrService) { }
 
   ngOnInit(): void {
   }
 
   onSubmit(): void {
-    if (this.entryForm.status === 'VALID') {
+    if (this.entryForm.valid) {
       this.entryService.newEntry(<Entry>this.entryForm.value).subscribe((newEntry: Entry) => {
-        console.log(newEntry)
+        this.toastr.success('Entry added successfully')
+        this.entryForm.reset()
       }, (error: Error) => {
+        this.toastr.error('Could not add entry')
         console.error(error)
       })
     }

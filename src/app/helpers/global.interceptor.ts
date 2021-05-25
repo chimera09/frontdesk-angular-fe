@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { LoginService } from '../login.service';
+import { LoginService } from '../services/login/login.service';
 import { HttpHandler, HttpInterceptor, HttpRequest, HttpEvent } from '@angular/common/http'
 import { Observable, throwError } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
-import { EntryService } from '../entry.service';
+import { EntryService } from '../services/entries/entry.service';
 
 @Injectable()
 export class GlobalInterceptor implements HttpInterceptor {

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LoginService } from '../login.service';
+import { LoginService } from '../services/login/login.service';
 import { User } from '../models/user';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
@@ -21,10 +21,9 @@ export class LoginComponent implements OnInit {
 
   login(user: User): void {
     this.loginService.login({ email: user.email, password: user.password } as User)
-      .subscribe(user => {
-        if(user.name) {
-          this.user = user
-          this.router.navigateByUrl('/entries')
+      .subscribe(response => {
+        if(response) {
+          this.router.navigateByUrl('/register')
         } else {
           this.toastr.error('User not found')
         }

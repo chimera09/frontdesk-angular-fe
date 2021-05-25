@@ -2,7 +2,7 @@ import { Component, Inject } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
-import { EntryService } from 'src/app/entry.service';
+import { EntryService } from 'src/app/services/entries/entry.service';
 import { ToastrService } from 'ngx-toastr';
 import { Entry } from '../../models/entry';
 
@@ -28,13 +28,12 @@ export class EntriesModalComponent {
               @Inject(MAT_DIALOG_DATA) private data: Entry) { }
 
   onSubmit(): void {
-    if (this.entryForm.status === 'VALID') {
-      console.log("Entryform: ", this.entryForm.value)
+    if (this.entryForm.valid) {
       this.entryService.updateEntry(<Entry>this.entryForm.value, this.data._id as string).subscribe(() => {
         this.dialogRef.close()
+        this.toastrService.success('Entry edited successfully')
       })
     } else {
-      console.log("Data: ", this.data)
       this.toastrService.error("Invalid fields")
     }
   }

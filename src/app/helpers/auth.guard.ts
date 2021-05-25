@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
+import { CheckboxControlValueAccessor } from '@angular/forms';
 import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, RouterEvent } from '@angular/router';
-import jwt_decode from 'jwt-decode'
-import { Role } from '../models/role';
-
-import { LoginService } from '../services/login/login.service';
+import jwt_decode from 'jwt-decode';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({ providedIn: 'root' })
 export class AuthGuard implements CanActivate {
@@ -14,34 +13,35 @@ export class AuthGuard implements CanActivate {
 
     constructor(
         private router: Router,
-        private loginService: LoginService
+        private toastrService: ToastrService,
     ) { }
 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-        if (this.token !== null || this.token !== undefined) {
-            try {
-                const token = localStorage.getItem('currentUser')
-                if (token) {
-                    const userData = JSON.parse(token)
-                    this.token = userData.token
-                    this.parseToken(this.token!)
-                } else {
-                    return false
-                }
-            } catch (error) {
-                console.error(error)
-                return false
-            }
-        }
-        
-        if (this.exp <= 0) {
-            localStorage.removeItem('currentUser')
+        const token = localStorage.getItem('currentUser')
+        if (token) {
+            const userData = JSON.parse(token)
+            this.token = userData.token
+            this.parseToken(this.token!)
+        } else {
             this.router.navigate(['/login'])
             return false
         }
+
+        if (this.exp <= 0) {
+            localStorage.removeItem('currentUser')
+            this.router.navigate(['/login'])
+            this.toastrService.error('Token has expired')
+            return false
+        }
+
         const hasAccess = this.role === route.data.role
-        if (hasAccess === false && route.data.failover) {
-            this.router.navigate([route.data.failover])
+        if (hasAccess === false) {
+            if (route.data.failover)
+                this.router.navigate([route.data.failover])
+            else {
+                this.router.navigate(['/tablet'])
+            }
+            this.toastrService.error("You don't have access to this route")
         }
         return hasAccess
     }
@@ -54,7 +54,7 @@ export class AuthGuard implements CanActivate {
             this.exp = exp - (Date.now() / 1000)
             this.role = role
         } catch (error) {
-            // TODO nu pot sa decozed, ajutior
+            this.toastrService.error('Could not decode token')
             console.error(error)
         }
     }

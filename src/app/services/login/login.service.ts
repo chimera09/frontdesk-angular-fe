@@ -9,7 +9,6 @@ import { User } from '../../models/user';
 })
 export class LoginService {
   private loginUrl = 'http://localhost:9000/auth'
-  private isLoggedUrl = 'http://localhost:9000/isLogged'
 
   constructor(private http: HttpClient) { }   
 
@@ -19,10 +18,6 @@ export class LoginService {
         localStorage.setItem('currentUser', JSON.stringify(user))
         return user
       }))
-  }
-
-  isLogged(): Observable<any> {
-    return this.http.post<any>(this.isLoggedUrl, {})
   }
 
   logout() {

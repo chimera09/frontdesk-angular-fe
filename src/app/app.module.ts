@@ -25,7 +25,6 @@ import { EntriesComponent } from './entries/entries.component';
 import { StringToNumberPipe } from './string-to-number.pipe';
 import { EntriesModalComponent } from './entries/modal/entries-modal.component';
 import { RegisterComponent } from './register/register.component';
-import { NavigationService } from './services/navigation/navigation.service';
 import { GlobalInterceptor } from './helpers/global.interceptor';
 import { JwtInterceptor } from './helpers/jwt.interceptor';
 
@@ -64,7 +63,6 @@ import { JwtInterceptor } from './helpers/jwt.interceptor';
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: GlobalInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
-    NavigationService
   ],
   bootstrap: [AppComponent]
 })

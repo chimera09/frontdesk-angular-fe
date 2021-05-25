@@ -1,10 +1,13 @@
-<mat-toolbar *ngIf="!inLogin && isLogged">
+<mat-toolbar *ngIf="!inLogin && isLogged" class="toolbar">
     Frontdesk
     <div class="toolbar">
-        <a [href]="entries">
+        <a [href]="registerUrl" *ngIf="loggedUser.role === 'Super Admin'">
+            <button mat-flat-button>Register</button>
+        </a>
+        <a [href]="entriesUrl" *ngIf="loggedUser.role === 'User'">
             <button mat-flat-button>Entries</button>
         </a>
-        <a [href]="tablet">
+        <a [href]="tabletUrl">
             <button mat-flat-button>Tablet</button>
         </a>
         <button mat-flat-button (click)="logout()">
@@ -12,4 +15,4 @@
         </button>
     </div>
 </mat-toolbar>
-<router-outlet></router-outlet>
+<router-outlet (activate)="onActivate($event)"></router-outlet>

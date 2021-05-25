@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Entry } from '../models/entry';
 import { EntryService } from '../services/entries/entry.service';
@@ -10,6 +10,8 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./tablet.component.css']
 })
 export class TabletComponent implements OnInit {
+  public isLogged: boolean = false
+
   entryForm = this.fb.group({
     name: [null, Validators.required],
     surname: [null, Validators.required],

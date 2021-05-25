@@ -1,4 +1,4 @@
-<div class="container">
+<div [ngClass]="{ 'container': isLogged === true, 'fullscreen-container': isLogged === false }">
     <form [formGroup]="entryForm" novalidate class="fullscreen">
         <mat-card-header class="title">
             <mat-card-title style="font-size: xx-large; color: white">Tablet</mat-card-title>
@@ -33,6 +33,7 @@
                 Company is <strong>required</strong>
             </mat-error>
         </mat-form-field>
-        <button mat-raised-button color="primary" type="reset" [disabled]="!entryForm.valid" (click)="onSubmit()">Submit</button>
+        <button mat-raised-button color="primary" type="reset" [disabled]="!entryForm.valid"
+            (click)="onSubmit()">Submit</button>
     </form>
 </div>

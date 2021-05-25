@@ -13,8 +13,10 @@ export class AppComponent {
   title = 'Frontdesk';
   inLogin: boolean = false;
   isLogged: boolean = false;
-  entries = "http://localhost:4200/entries";
-  tablet = "http://localhost:4200/tablet";
+  loggedUser: any
+  entriesUrl: string = 'http://localhost:4200/entries';
+  tabletUrl: string = 'http://localhost:4200/tablet';
+  registerUrl: string = 'http://localhost:4200/register';
   
   constructor(private router: Router, private location: Location, private loginService: LoginService) { }
 
@@ -31,9 +33,14 @@ export class AppComponent {
     const storage = localStorage.getItem('currentUser')
     if(storage) {
       this.isLogged = true
+      this.loggedUser = JSON.parse(storage)
     } else {
       this.isLogged = false
     }
+  }
+
+  onActivate(component: any) {
+    component.isLogged = this.isLogged
   }
 
   logout() {

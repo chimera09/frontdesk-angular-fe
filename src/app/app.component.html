@@ -1,6 +1,10 @@
 <mat-toolbar *ngIf="!inLogin && isLogged" class="toolbar">
     Frontdesk
     <div class="toolbar">
+        <span class="toolbar-text">From:&nbsp;&nbsp;&nbsp;</span>
+        <input type="date" class="date">
+        <span class="toolbar-text">To:&nbsp;&nbsp;&nbsp;</span>
+        <input type="date" class="date">
         <a [href]="registerUrl" *ngIf="loggedUser.role === 'Super Admin'">
             <button mat-flat-button>Register</button>
         </a>
@@ -10,7 +14,7 @@
         <a [href]="tabletUrl">
             <button mat-flat-button>Tablet</button>
         </a>
-        <button mat-flat-button (click)="logout()">
+        <button mat-flat-button style="justify-content: center;" (click)="logout()">
             <mat-icon>power_settings_new</mat-icon>
         </button>
     </div>

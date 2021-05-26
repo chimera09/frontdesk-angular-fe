@@ -1,12 +1,16 @@
 <div class="container">
     <div class="center">
-        <mat-form-field>
-            <input matInput placeholder="Email" #username>
-        </mat-form-field>
-        <mat-form-field>
-            <input matInput type="password" placeholder="Password" #password>
-        </mat-form-field>
-        <button mat-raised-button color="primary"
-            (click)="login({email: username.value, password: password.value})">Login</button>
+        <div class="beautiful-box">
+            <mat-form-field class="login-input">
+                <input matInput placeholder="Email" #username>
+            </mat-form-field>
+            <mat-form-field class="login-input">
+                <input matInput type="password" placeholder="Password" #password>
+            </mat-form-field>
+            <button mat-raised-button color="primary" (click)="login({email: username.value, password: password.value})"
+                class="input-button">Login</button>
+            <a href="#" class="login-anchor-right">Continue without logging in</a>
+            <a href="#" class="login-anchor-left">Forgot password?</a>
+        </div>
     </div>
 </div>

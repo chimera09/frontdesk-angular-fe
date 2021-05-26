@@ -9,9 +9,24 @@ button {
     display: flex;
     flex-direction: flex-end;
     justify-content: space-between;
-    margin-right: 8px
+    margin-right: 1.2em;
+}
+
+.date {
+    margin-right: 1em;
+    border-radius: 5px;
+    border: 3px white;
+    border-left: 10px;
+    padding-inline-start: 10px;
+    padding-inline-end: 10px;
+    color: #403f3d;
 }
 
 a {
     text-decoration: none;
+}
+
+.toolbar-text{
+    font-weight: 300;
+    color: lightgrey;
 }

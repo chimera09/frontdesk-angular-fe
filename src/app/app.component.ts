@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
+import { FormGroup, FormControl } from '@angular/forms';
 
 import { LoginService } from './services/login/login.service';
 
@@ -17,21 +18,26 @@ export class AppComponent {
   entriesUrl: string = 'http://localhost:4200/entries';
   tabletUrl: string = 'http://localhost:4200/tablet';
   registerUrl: string = 'http://localhost:4200/register';
-  
+
+  range = new FormGroup({
+    start: new FormControl(),
+    end: new FormControl()
+  });
+
   constructor(private router: Router, private location: Location, private loginService: LoginService) { }
 
   ngOnInit(): void {
     this.router.events.subscribe(() => {
-      if(this.location.path() === '/login')
+      if (this.location.path() === '/login')
         this.inLogin = true;
-      else 
+      else
         this.inLogin = false;
     })
   }
 
   ngDoCheck(): void {
     const storage = localStorage.getItem('currentUser')
-    if(storage) {
+    if (storage) {
       this.isLogged = true
       this.loggedUser = JSON.parse(storage)
     } else {

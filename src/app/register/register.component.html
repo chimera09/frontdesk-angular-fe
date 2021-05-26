@@ -4,31 +4,31 @@
             <mat-card-title style="font-size: xx-large; color: white">Register</mat-card-title>
         </mat-card-header>
         <mat-form-field>
-            <input matInput placeholder="Name" formControlName="name">
+            <input matInput placeholder="Name" formControlName="name" class="white-text">
             <mat-error *ngIf="userForm.controls['name'].hasError('required')">
                 Name is <strong>required</strong>
             </mat-error>
         </mat-form-field>
         <mat-form-field>
-            <input matInput placeholder="Surname" formControlName="surname">
+            <input matInput placeholder="Surname" formControlName="surname" class="white-text">
             <mat-error *ngIf="userForm.controls['surname'].hasError('required')">
                 Surname is <strong>required</strong>
             </mat-error>
         </mat-form-field>
         <mat-form-field>
-            <input matInput placeholder="Email" formControlName="email">
+            <input matInput placeholder="Email" formControlName="email" class="white-text">
             <mat-error *ngIf="userForm.controls['email'].hasError('required')">
                 Email is <strong>required</strong>
             </mat-error>
         </mat-form-field>
         <mat-form-field>
-            <input matInput placeholder="Phone" formControlName="phone">
+            <input matInput placeholder="Phone" formControlName="phone" class="white-text">
             <mat-error *ngIf="userForm.controls['phone'].hasError('required')">
                 Phone is <strong>required</strong>
             </mat-error>
         </mat-form-field>
         <mat-form-field>
-            <mat-select matInput placeholder="Role" formControlName="role">
+            <mat-select matInput placeholder="Role" formControlName="role" class="white-text">
                 <mat-option *ngFor="let role of roles | keyvalue" [value]="role.value">
                     {{ role.value }}
                 </mat-option>

@@ -11,13 +11,13 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSelectModule } from '@angular/material/select';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import {MatDialogModule} from '@angular/material/dialog';
+import { MatDialogModule } from '@angular/material/dialog';
 import { ReactiveFormsModule } from '@angular/forms';
-
 
 import { LoginComponent } from './login/login.component';
 import { TabletComponent } from './tablet/tablet.component';
@@ -48,6 +48,7 @@ import { JwtInterceptor } from './helpers/jwt.interceptor';
     MatTableModule,
     MatPaginatorModule,
     MatSelectModule,
+    MatDatepickerModule,
     MatRadioModule,
     MatIconModule,
     MatToolbarModule,
@@ -62,7 +63,7 @@ import { JwtInterceptor } from './helpers/jwt.interceptor';
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: GlobalInterceptor, multi: true },
-    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
   ],
   bootstrap: [AppComponent]
 })

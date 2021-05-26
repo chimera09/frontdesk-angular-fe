@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { CheckboxControlValueAccessor } from '@angular/forms';
 import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, RouterEvent } from '@angular/router';
 import jwt_decode from 'jwt-decode';
 import { ToastrService } from 'ngx-toastr';

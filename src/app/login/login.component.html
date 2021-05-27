@@ -2,15 +2,15 @@
     <div class="center">
         <div class="beautiful-box">
             <mat-form-field class="login-input">
-                <input matInput placeholder="Email" #username>
+                <input matInput placeholder="Email" class="white-text" #username>
             </mat-form-field>
             <mat-form-field class="login-input">
-                <input matInput type="password" placeholder="Password" #password>
+                <input matInput type="password" placeholder="Password" class="white-text" #password>
             </mat-form-field>
             <button mat-raised-button color="primary" (click)="login({email: username.value, password: password.value})"
                 class="input-button">Login</button>
-            <a href="#" class="login-anchor-right">Continue without logging in</a>
-            <a href="#" class="login-anchor-left">Forgot password?</a>
+            <a [href]="tabletUrl" class="login-anchor-right">Continue without logging in</a>
+            <a (click)="openDialog()" class="login-anchor-left">Forgot password?</a>
         </div>
     </div>
 </div>

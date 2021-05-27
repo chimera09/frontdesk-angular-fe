@@ -83,7 +83,6 @@ input:-webkit-autofill
     .login-anchor-left {
         text-decoration: none;
         color: #c2185b;
-        cursor: pointer;
         text-align: left;
         float: left;
         padding-top: 1em;
@@ -132,7 +131,6 @@ input:-webkit-autofill
 
     .login-anchor-left {
         text-decoration: none;
-        cursor: pointer;
         color: #c2185b;
         padding-top: 1em;
         display: block;

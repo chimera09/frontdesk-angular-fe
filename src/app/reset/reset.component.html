@@ -1,0 +1,16 @@
+<div class="container">
+    <div class="center">
+        <div class="beautiful-box">
+            <form [formGroup]="resetForm" novalidate>
+                <mat-form-field class="login-input">
+                    <input matInput type="password" formControlName="newPass" placeholder="New password" class="white-text">
+                </mat-form-field>
+                <mat-form-field class="login-input">
+                    <input matInput type="password" formControlName="confirmPass" placeholder="Confirm password" class="white-text">
+                </mat-form-field>
+            </form>
+            <button mat-raised-button color="primary" [disabled]="!resetForm.valid" class="input-button" (click)="onSubmit()">Reset</button>
+            <a [href]="loginUrl" class="login-anchor-right">Back to login</a>
+        </div>
+    </div>
+</div>

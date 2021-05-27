@@ -49,7 +49,6 @@ export class AuthGuard implements CanActivate {
         try {
             const decoded = jwt_decode<any>(token)
             const { exp, role } = decoded
-            console.log(exp)
             this.exp = exp - (Date.now() / 1000)
             this.role = role
         } catch (error) {

@@ -27,6 +27,8 @@ import { EntriesModalComponent } from './entries/modal/entries-modal.component';
 import { RegisterComponent } from './register/register.component';
 import { GlobalInterceptor } from './helpers/global.interceptor';
 import { JwtInterceptor } from './helpers/jwt.interceptor';
+import { ResetComponent } from './reset/reset.component';
+import { ResetModalComponent } from './login/resetModal/reset-modal.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +39,8 @@ import { JwtInterceptor } from './helpers/jwt.interceptor';
     EntriesModalComponent,
     StringToNumberPipe,
     RegisterComponent,
+    ResetComponent,
+    ResetModalComponent,
   ],
   imports: [
     BrowserModule,

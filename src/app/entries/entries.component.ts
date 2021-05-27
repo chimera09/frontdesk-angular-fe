@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import { Entry } from '../models/entry';
 import { EntryService } from '../services/entries/entry.service';
 import { DEFAULT_ROWS_PER_PAGE_VALUE } from '../../utils/constants';
@@ -18,6 +18,7 @@ export class EntriesComponent implements OnInit {
   pageIndex: number = 0
   lastPage: number = 0
   rowsPerPage: string = DEFAULT_ROWS_PER_PAGE_VALUE
+  pageSizeOptions: number[] = [5, 10, 25, 100];
   displayColumns = ['index', 'name', 'surname', 'email', 'phone', 'company', 'date', 'actions']
 
   constructor(private entryService: EntryService, private dialog: MatDialog) { }
@@ -38,8 +39,9 @@ export class EntriesComponent implements OnInit {
     })
   }
 
-  onChangePage(event: any): void {
+  onPageEvent(event: any): void {
     this.pageIndex = event.pageIndex
+    this.rowsPerPage = event.pageSize
     this.getEntries(this.pageIndex)
   }
 

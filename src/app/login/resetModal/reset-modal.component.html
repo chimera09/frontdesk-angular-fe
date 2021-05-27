@@ -1,0 +1,15 @@
+<h1 mat-dialog-title class="title">Reset password</h1>
+<mat-dialog-content [formGroup]="form">
+    <span>Input mail for reset password link</span>
+    <mat-form-field>
+        <input matInput placeholder="Email" formControlName="email">
+        <mat-error *ngIf="form.controls['email'].hasError('required')">
+            Email is <strong>required</strong>
+        </mat-error>
+        <mat-error *ngIf="form.controls['email'].hasError('email')">
+            Invalid <strong>email</strong>
+        </mat-error>
+    </mat-form-field>
+    <button mat-raised-button color="primary" [disabled]="!form.valid" type="submit" (click)="onSubmit()">Submit</button>
+    <button mat-raised-button color="accent" mat-dialog-close>Cancel</button>
+</mat-dialog-content>
